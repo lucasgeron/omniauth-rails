@@ -3,8 +3,14 @@ database: &database
   db.password: postgres
   db.host: db
 
+google: &google
+  GOOGLE_OAUTH_CLIENT_ID: "YOUR_ID"
+  GOOGLE_OAUTH_CLIENT_SECRET: "YOUR_KEY"
+
 development:
   <<: *database
+  <<: *google
 
 test:
   <<: *database
+  <<: *google

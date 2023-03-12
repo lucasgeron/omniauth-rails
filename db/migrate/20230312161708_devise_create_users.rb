@@ -33,6 +33,13 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       # t.datetime :locked_at
 
 
+     ## Colunas personalizadas 
+     t.string :full_name 
+     t.string :uid 
+     t.string :avatar_url 
+     t.string :provider
+      
+
       t.timestamps null: false
     end
 
