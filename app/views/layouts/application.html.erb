@@ -13,8 +13,6 @@
 
 	<body >
 
-		<%= current_user.inspect %>
-
 		<div class=" h-screen bg-gray-200">
 			<div class="container mx-auto grid h-screen place-items-center">
 
@@ -66,6 +64,12 @@
 					</div>
 
 				</div>
+				<div class="text-gray-400 text-center w-2/4 text-xs">
+					<p class="tracking-widest font-bold">Here is data storaged on database.</p>
+					<p class="tracking-widest font-extralight">Feel free to cancel your account on "edit account/cancel my account"</p>
+					<%= current_user.inspect %>
+				</div>
+
 			</div>
 		</div>
 

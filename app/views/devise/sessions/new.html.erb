@@ -1,7 +1,19 @@
-<h2 class="text-lg mb-4 text-center font-bold">Log in</h2>
+<h2 class="text-lg mb-4 text-center font-bold">Sign in with</h2>
 
-<%- if devise_mapping.omniauthable? %>
-	<%- resource_class.omniauth_providers.each do |provider| %>
-		<%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class:"bg-blue-600 rounded-lg text-sm text-white w-full p-4 my-2" %><br />
-	<% end %>
+<% if devise_mapping.omniauthable? %>
+
+	<% resource_class.omniauth_providers.each do |provider| %>
+
+		<% case OmniAuth::Utils.camelize(provider) %>
+		<% when "Facebook" %>
+		<%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class:"bg-gray-200  shadow-sm hover:shadow-md text-gray-800 font-semibold hover:text-white hover:bg-blue-600 rounded-lg text-sm text-white w-full p-4 my-2" do %>
+			<%= icon('fa-brands', 'facebook', class:"fa-lg mr-1") %> Facebook
+		<% end %>
+		<% when "GoogleOauth2" %>
+		<%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class:"bg-gray-200  shadow-sm hover:shadow-md text-gray-800 font-semibold hover:text-white hover:bg-blue-600 rounded-lg text-sm text-white w-full p-4 my-2" do %>
+			<%= icon('fa-brands', 'google', class:"fa-lg mr-1") %> Google 
+		<% end %>
+	<%end %>
+<% end %>
+
 <% end %>
