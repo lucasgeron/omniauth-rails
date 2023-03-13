@@ -13,20 +13,59 @@
 
 	<body >
 
+		<%= current_user.inspect %>
+
 		<div class=" h-screen bg-gray-200">
 			<div class="container mx-auto grid h-screen place-items-center">
 
-				<div class="bg-gray-100 rounded-lg w-1/5 p-4">
-					<% if notice.present? or alert.present? %>
-						<div class="bg-white rounded-lg p-2 tex-center font-bold">
-							<p class="text-blue-600"><%= notice %></p>
-							<p class="text-red-600"><%= alert %></p>
+				<div class="bg-gray-100 rounded-lg p-4 grid grid-cols-2 gap-4 w-2/4">
+
+					<div class=" border-r border-gray-400 pr-4 text-center space-y-4 my-auto p-4">
+
+						<p class="text-lg font-bold">
+							OmniAuth Rails
+						</p>
+						<p class=" text-xs ">
+							This project was developed as a demo
+							implementation for <b>OmniAuth2.0</b> on Rails.
+						</p>
+
+						<p class="text-xs ">
+							Feel free to try and use it as a template for your own. 
+						</p>
+
+						<p class="text-xs tracking-tight">
+							This project has the technologies below:
+						</p>
+
+						<div class=""> <%= image_tag("omniauth.png", class:"h-12 inline align-middle mr-2") %><span class="text-gray-400 align-sub"> 2.0.0 </span></div>
+
+						<div class="grid grid-cols-2 gap-2 text-sm text-start ">
+							<div class=""> <%= image_tag("ruby.png", class:"h-6 inline align-middle mr-2") %> <span class="text-gray-400">Ruby 3.0.0 </span></div>
+							<div class=""> <%= image_tag("rails.svg", class:"h-6 inline align-middle mr-2") %><span class="text-gray-400">Rails 7.0.4 </span></div>
+							<div class=""> <%= image_tag("devise.png", class:"h-6 inline align-middle mr-2") %><span class="text-gray-400">Devise 4.9.0 </span></div>
+							<div class=""> <%= image_tag("docker.png", class:"h-6 inline align-middle mr-2") %><span class="text-gray-400">Docker 4.17.0 </span></div>
+							<div class=""> <%= image_tag("postgresql.png", class:"h-6 inline align-middle mr-2") %> <span class="text-gray-400">PostgreSQL 15.2 </span> </div>
+							<div class=""> <%= image_tag("tailwind.png", class:"h-6 inline align-middle mr-2") %> <span class="text-gray-400">Tailwind-Rails 2.0 </span> </div>
 						</div>
-					<% end %>
 
-					<%= yield %>
+						<p class="text-xs">
+							See the source code on <%= link_to "GitHub repository", "#", class:"font-semibold p-1 bg-gray-200 rounded-lg" %>.
+						</p>
+					</div>
+
+					<div class="p-4 my-auto">
+						<% if notice.present? or alert.present? %>
+							<div class="bg-white rounded-lg p-2 tex-center font-bold">
+								<p class="text-blue-600"><%= notice %></p>
+								<p class="text-red-600"><%= alert %></p>
+							</div>
+						<% end %>
+
+						<%= yield %>
+					</div>
+
 				</div>
-
 			</div>
 		</div>
 

@@ -1,26 +1,7 @@
-<h2 class="text-lg">Log in</h2>
+<h2 class="text-lg mb-4 text-center font-bold">Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-	<div class="field">
-		<%= f.label :email %><br />
-		<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "rounded-lg w-full", placeholder: "Email"%>
-	</div>
-
-	<div class="field">
-		<%= f.label :password %><br />
-		<%= f.password_field :password, autocomplete: "current-password", class: "rounded-lg w-full", placeholder: "Password"%>
-	</div>
-
-	<% if devise_mapping.rememberable? %>
-		<div class="field">
-			<%= f.check_box :remember_me, class:"rounded-md" %>
-			<%= f.label :remember_me %>
-		</div>
+<%- if devise_mapping.omniauthable? %>
+	<%- resource_class.omniauth_providers.each do |provider| %>
+		<%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class:"bg-blue-600 rounded-lg text-sm text-white w-full p-4 my-2" %><br />
 	<% end %>
-
-	<div class="actions">
-		<%= f.submit "Log in" , class:" bg-blue-600  text-white p-2 rounded-lg w-full my-1 cursor-pointer"%>
-	</div>
 <% end %>
-
-<%= render "devise/shared/links" %>

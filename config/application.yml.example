@@ -7,10 +7,16 @@ google: &google
   GOOGLE_OAUTH_CLIENT_ID: "YOUR_ID"
   GOOGLE_OAUTH_CLIENT_SECRET: "YOUR_KEY"
 
+facebook: &facebook
+  FACEBOOK_APP_ID: "YOUR_ID"
+  FACEBOOK_APP_SECRET: "YOUR_KEY" 
+
 development:
   <<: *database
   <<: *google
+  <<: *facebook
 
 test:
   <<: *database
   <<: *google
+  <<: *facebook

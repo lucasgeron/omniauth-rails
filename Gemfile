@@ -76,5 +76,6 @@ end
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+# gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 gem "tailwindcss-rails", "~> 2.0"
